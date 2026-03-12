@@ -1,26 +1,38 @@
-'use client';
-import { useState } from 'react';
-import { Star, Clock, Ticket, Heart, X, MapPin, Tag } from 'lucide-react';
-import useLanguageStore from '../../lib/languageStore';
-import { formatPrice, cn } from '../../lib/utils';
-import { categories } from '../../data/regions';
+"use client";
+import { useState } from "react";
+import { Star, Clock, Ticket, Heart, X, MapPin, Tag } from "lucide-react";
+import useLanguageStore from "../../lib/languageStore";
+import { formatPrice, cn } from "../../lib/utils";
+import { categories } from "../../data/regions";
 
-export default function AttractionCard({ attraction, viewMode = 'grid', saved, onToggleSave }) {
+export default function AttractionCard({
+  attraction,
+  viewMode = "grid",
+  saved,
+  onToggleSave,
+}) {
   const { getText, language } = useLanguageStore();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const cat = categories.find(c => c.id === attraction.category);
+  const cat = categories.find((c) => c.id === attraction.category);
 
   return (
     <>
       {/* ═══ CARD ═══ */}
-      <div className={cn(
-        'rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:-translate-y-1 group',
-        viewMode === 'list' ? 'flex' : '',
-        'hover:border-gold-500/30 hover:shadow-card-hover'
-      )}>
+      <div
+        className={cn(
+          "rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] overflow-hidden transition-all duration-300 hover:-translate-y-1 group",
+          viewMode === "list" ? "flex" : "",
+          "hover:border-gold-500/30 hover:shadow-card-hover",
+        )}
+      >
         {/* Image */}
-        <div className={cn('relative overflow-hidden', viewMode === 'list' ? 'w-36 h-36 flex-shrink-0' : 'h-48')}>
+        <div
+          className={cn(
+            "relative overflow-hidden",
+            viewMode === "list" ? "w-36 h-36 flex-shrink-0" : "h-48",
+          )}
+        >
           <img
             src={attraction.image}
             alt={getText(attraction.name)}
@@ -40,18 +52,24 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
           <button
             onClick={onToggleSave}
             className={cn(
-              'absolute top-3 right-3 w-8 h-8 rounded-full backdrop-blur-sm border flex items-center justify-center transition-all',
-              saved ? 'bg-rose-500 border-rose-400 text-white' : 'bg-black/40 border-white/20 text-white hover:bg-rose-500/50'
+              "absolute top-3 right-3 w-8 h-8 rounded-full backdrop-blur-sm border flex items-center justify-center transition-all",
+              saved
+                ? "bg-rose-500 border-rose-400 text-white"
+                : "bg-black/40 border-white/20 text-white hover:bg-rose-500/50",
             )}
           >
-            <Heart size={14} className={saved ? 'fill-current' : ''} />
+            <Heart size={14} className={saved ? "fill-current" : ""} />
           </button>
 
           {/* Rating */}
           <div className="absolute bottom-3 left-3 flex items-center gap-1">
             <Star size={12} className="fill-gold-400 text-gold-400" />
-            <span className="text-white text-xs font-semibold">{attraction.rating}</span>
-            <span className="text-white/60 text-xs">({attraction.reviewCount})</span>
+            <span className="text-white text-xs font-semibold">
+              {attraction.rating}
+            </span>
+            <span className="text-white/60 text-xs">
+              ({attraction.reviewCount})
+            </span>
           </div>
         </div>
 
@@ -75,7 +93,9 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
               {attraction.entryFee != null && (
                 <span className="flex items-center gap-1">
                   <Ticket size={11} className="text-gold-500" />
-                  {attraction.entryFee === 0 ? 'Bepul' : formatPrice(attraction.entryFee, attraction.currency)}
+                  {attraction.entryFee === 0
+                    ? "Bepul"
+                    : formatPrice(attraction.entryFee, attraction.currency)}
                 </span>
               )}
             </div>
@@ -102,7 +122,6 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
 
           {/* Modal box */}
           <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[var(--border-color)] bg-[var(--bg-card)] shadow-2xl">
-
             {/* Rasm */}
             <div className="relative h-64 overflow-hidden rounded-t-2xl">
               <img
@@ -131,8 +150,12 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
                 <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm">
                   <Star size={13} className="fill-gold-400 text-gold-400" />
-                  <span className="text-white text-sm font-semibold">{attraction.rating}</span>
-                  <span className="text-white/60 text-xs">({attraction.reviewCount} sharh)</span>
+                  <span className="text-white text-sm font-semibold">
+                    {attraction.rating}
+                  </span>
+                  <span className="text-white/60 text-xs">
+                    ({attraction.reviewCount} sharh)
+                  </span>
                 </div>
               </div>
             </div>
@@ -155,8 +178,12 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)]">
                     <Clock size={18} className="text-gold-500 flex-shrink-0" />
                     <div>
-                      <div className="text-[var(--text-muted)] text-xs font-body">Ish vaqti</div>
-                      <div className="text-[var(--text-primary)] text-sm font-body font-medium">{attraction.openHours}</div>
+                      <div className="text-[var(--text-muted)] text-xs font-body">
+                        Ish vaqti
+                      </div>
+                      <div className="text-[var(--text-primary)] text-sm font-body font-medium">
+                        {attraction.openHours}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -165,9 +192,16 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)]">
                     <Ticket size={18} className="text-gold-500 flex-shrink-0" />
                     <div>
-                      <div className="text-[var(--text-muted)] text-xs font-body">Kirish narxi</div>
+                      <div className="text-[var(--text-muted)] text-xs font-body">
+                        Kirish narxi
+                      </div>
                       <div className="text-[var(--text-primary)] text-sm font-body font-medium">
-                        {attraction.entryFee === 0 ? 'Bepul' : formatPrice(attraction.entryFee, attraction.currency)}
+                        {attraction.entryFee === 0
+                          ? "Bepul"
+                          : formatPrice(
+                              attraction.entryFee,
+                              attraction.currency,
+                            )}
                       </div>
                     </div>
                   </div>
@@ -177,8 +211,12 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)]">
                     <Tag size={18} className="text-gold-500 flex-shrink-0" />
                     <div>
-                      <div className="text-[var(--text-muted)] text-xs font-body">Narx darajasi</div>
-                      <div className="text-[var(--text-primary)] text-sm font-body font-medium">{attraction.priceRange}</div>
+                      <div className="text-[var(--text-muted)] text-xs font-body">
+                        Narx darajasi
+                      </div>
+                      <div className="text-[var(--text-primary)] text-sm font-body font-medium">
+                        {attraction.priceRange}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -187,8 +225,12 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)]">
                     <MapPin size={18} className="text-gold-500 flex-shrink-0" />
                     <div>
-                      <div className="text-[var(--text-muted)] text-xs font-body">Tur</div>
-                      <div className="text-[var(--text-primary)] text-sm font-body font-medium">{attraction.tags[0]}</div>
+                      <div className="text-[var(--text-muted)] text-xs font-body">
+                        Tur
+                      </div>
+                      <div className="text-[var(--text-primary)] text-sm font-body font-medium">
+                        {attraction.tags[0]}
+                      </div>
                     </div>
                   </div>
                 )}
@@ -197,8 +239,11 @@ export default function AttractionCard({ attraction, viewMode = 'grid', saved, o
               {/* Teglar */}
               {attraction.tags?.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {attraction.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-600 dark:text-gold-400 text-xs font-body">
+                  {attraction.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-600 dark:text-gold-400 text-xs font-body"
+                    >
                       {tag}
                     </span>
                   ))}

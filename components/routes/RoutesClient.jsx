@@ -78,7 +78,7 @@ export default function RoutesClient() {
             🗺️ Sayohat Marshrutlari
           </h1>
           <p className="text-white/70 font-body text-base max-w-lg mx-auto">
-            Tayyor marshrutlardan foydalaning yoki AI yordamida o'z marshrutingizni yarating
+            Tayyor marshrutlardan foydalaning yoki AI yordamida o&#39;z marshrutingizni yarating
           </p>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function RoutesClient() {
                       {route.duration[language] || route.duration.en}
                     </div>
                     <button className="flex items-center gap-1.5 text-xs font-body font-semibold text-gold-600 dark:text-gold-400 hover:gap-2 transition-all">
-                      Ko'rish <ArrowRight size={13} />
+                      Ko&#39;rish <ArrowRight size={13} />
                     </button>
                   </div>
                 </div>

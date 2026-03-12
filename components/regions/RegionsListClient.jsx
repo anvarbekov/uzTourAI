@@ -1,17 +1,17 @@
-'use client';
-import { useState } from 'react';
-import Link from 'next/link';
-import { MapPin, Star, ArrowRight, Search, Filter } from 'lucide-react';
-import useLanguageStore from '../../lib/languageStore';
-import { regions } from '../../data/regions';
-import { cn } from '../../lib/utils';
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { MapPin, Star, ArrowRight, Search, Filter } from "lucide-react";
+import useLanguageStore from "../../lib/languageStore";
+import { regions } from "../../data/regions";
+import { cn } from "../../lib/utils";
 
 export default function RegionsListClient() {
   const { t, getText } = useLanguageStore();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [selected, setSelected] = useState(null);
 
-  const filtered = regions.filter(r => {
+  const filtered = regions.filter((r) => {
     const name = getText(r.name).toLowerCase();
     return name.includes(search.toLowerCase());
   });
@@ -24,19 +24,22 @@ export default function RegionsListClient() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-4">
-              {t('regions.title')}
+              {t("regions.title")}
             </h1>
             <p className="text-white/70 font-body text-lg max-w-2xl mx-auto mb-8">
-              {t('regions.subtitle')}
+              {t("regions.subtitle")}
             </p>
             {/* Search */}
             <div className="relative max-w-md mx-auto">
-              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
+              <Search
+                size={18}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40"
+              />
               <input
                 type="text"
                 value={search}
-                onChange={e => setSearch(e.target.value)}
-                placeholder={t('common.search') + '...'}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder={t("common.search") + "..."}
                 className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 font-body text-sm focus:outline-none focus:border-gold-500 transition-colors backdrop-blur-sm"
               />
             </div>
@@ -66,7 +69,9 @@ export default function RegionsListClient() {
                 {/* Rating */}
                 <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-full bg-black/50 backdrop-blur-sm">
                   <Star size={11} className="fill-gold-400 text-gold-400" />
-                  <span className="text-white text-xs font-semibold">{region.rating}</span>
+                  <span className="text-white text-xs font-semibold">
+                    {region.rating}
+                  </span>
                 </div>
               </div>
 
@@ -83,13 +88,19 @@ export default function RegionsListClient() {
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="flex gap-1.5">
-                    {region.tags.slice(0, 2).map(tag => (
-                      <span key={tag} className="px-2 py-0.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-muted)] text-[10px] font-body">
+                    {region.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-muted)] text-[10px] font-body"
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <ArrowRight size={15} className="text-[var(--text-muted)] group-hover:text-gold-500 group-hover:translate-x-1 transition-all" />
+                  <ArrowRight
+                    size={15}
+                    className="text-[var(--text-muted)] group-hover:text-gold-500 group-hover:translate-x-1 transition-all"
+                  />
                 </div>
               </div>
             </Link>
@@ -99,7 +110,9 @@ export default function RegionsListClient() {
         {filtered.length === 0 && (
           <div className="text-center py-16">
             <div className="text-4xl mb-3">🔍</div>
-            <p className="text-[var(--text-secondary)] font-body">Hech narsa topilmadi</p>
+            <p className="text-[var(--text-secondary)] font-body">
+              Hech narsa topilmadi
+            </p>
           </div>
         )}
       </div>
