@@ -1,24 +1,32 @@
-'use client';
-import Link from 'next/link';
-import { MapPin, Phone, Mail, Instagram, Facebook, Youtube, Twitter } from 'lucide-react';
-import useLanguageStore from '../../lib/languageStore';
+"use client";
+import Link from "next/link";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Instagram,
+  Facebook,
+  Youtube,
+  Twitter,
+} from "lucide-react";
+import useLanguageStore from "../../lib/languageStore";
 
 export default function Footer() {
   const { t } = useLanguageStore();
 
   const footerLinks = [
-    { href: '/', label: t('nav.home') },
-    { href: '/regions', label: t('nav.regions') },
-    { href: '/hotels', label: t('nav.hotels') },
-    { href: '/routes', label: t('nav.routes') },
-    { href: '/about', label: t('nav.about') },
+    { href: "/", label: t("nav.home") },
+    { href: "/regions", label: t("nav.regions") },
+    { href: "/hotels", label: t("nav.hotels") },
+    { href: "/routes", label: t("nav.routes") },
+    { href: "/about", label: t("nav.about") },
   ];
 
   const social = [
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
   ];
 
   return (
@@ -32,12 +40,16 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-primary-600 flex items-center justify-center">
-                <span className="text-white font-display font-bold text-lg">U</span>
+                <span className="text-white font-display font-bold text-lg">
+                  U
+                </span>
               </div>
-              <span className="font-display font-bold text-2xl text-gradient-gold">UzTour</span>
+              <span className="font-display font-bold text-2xl text-gradient-gold">
+                UzTour
+              </span>
             </Link>
             <p className="text-[var(--text-secondary)] font-body text-sm leading-relaxed max-w-xs mb-6">
-              {t('footer.description')}
+              {t("footer.description")}
             </p>
             {/* Social */}
             <div className="flex items-center gap-3">
@@ -59,7 +71,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-display font-semibold text-[var(--text-primary)] mb-4">
-              {t('footer.quickLinks')}
+              {t("footer.quickLinks")}
             </h3>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
@@ -78,24 +90,33 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-display font-semibold text-[var(--text-primary)] mb-4">
-              {t('footer.contact')}
+              {t("footer.contact")}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0 text-gold-500" />
+                <MapPin
+                  size={16}
+                  className="mt-0.5 flex-shrink-0 text-gold-500"
+                />
                 <span className="text-sm font-body text-[var(--text-secondary)]">
-                  Toshkent, O'zbekiston
+                  Toshkent, O&#39;zbekiston
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={16} className="flex-shrink-0 text-gold-500" />
-                <a href="tel:+998712345678" className="text-sm font-body text-[var(--text-secondary)] hover:text-gold-500 transition-colors">
+                <a
+                  href="tel:+998712345678"
+                  className="text-sm font-body text-[var(--text-secondary)] hover:text-gold-500 transition-colors"
+                >
                   +998 71 234 56 78
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={16} className="flex-shrink-0 text-gold-500" />
-                <a href="mailto:info@uztour.uz" className="text-sm font-body text-[var(--text-secondary)] hover:text-gold-500 transition-colors">
+                <a
+                  href="mailto:info@uztour.uz"
+                  className="text-sm font-body text-[var(--text-secondary)] hover:text-gold-500 transition-colors"
+                >
                   info@uztour.uz
                 </a>
               </li>
@@ -109,12 +130,16 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs font-body text-[var(--text-muted)]">
-            © {new Date().getFullYear()} UzTour. {t('footer.rights')}.
+            © {new Date().getFullYear()} UzTour. {t("footer.rights")}.
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-body text-[var(--text-muted)]">Made with</span>
+            <span className="text-xs font-body text-[var(--text-muted)]">
+              Made with
+            </span>
             <span className="text-red-500">❤️</span>
-            <span className="text-xs font-body text-[var(--text-muted)]">for Uzbekistan</span>
+            <span className="text-xs font-body text-[var(--text-muted)]">
+              for Uzbekistan
+            </span>
           </div>
         </div>
       </div>
