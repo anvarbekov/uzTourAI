@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Outfit:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-arabic: 'Noto Nastaliq Urdu', serif;
+  --font-display: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-arabic: "Noto Nastaliq Urdu", serif;
 
   /* Light theme */
   --bg-primary: #fafaf8;
@@ -49,8 +50,12 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body);
+  font-family: "Source Serif 4", serif;
+  font-family: "Outfit", sans-serif;
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -82,7 +87,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   line-height: 1.2;
 }
@@ -108,10 +118,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .bg-silk-road {
-    background: linear-gradient(135deg, 
-      #1a0a00 0%, 
-      #2d1500 20%, 
-      #1a0f05 40%, 
+    background: linear-gradient(
+      135deg,
+      #1a0a00 0%,
+      #2d1500 20%,
+      #1a0f05 40%,
       #0d0d1a 60%,
       #1a0a00 100%
     );
@@ -147,19 +158,44 @@ h1, h2, h3, h4, h5, h6 {
 
   .gold-divider {
     height: 2px;
-    background: linear-gradient(90deg, transparent, #d4a017, #f0b429, #d4a017, transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #d4a017,
+      #f0b429,
+      #d4a017,
+      transparent
+    );
   }
 
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
-  .animate-delay-400 { animation-delay: 400ms; }
-  .animate-delay-500 { animation-delay: 500ms; }
-  .animate-delay-600 { animation-delay: 600ms; }
-  .animate-delay-700 { animation-delay: 700ms; }
-  .animate-delay-800 { animation-delay: 800ms; }
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animate-delay-600 {
+    animation-delay: 600ms;
+  }
+  .animate-delay-700 {
+    animation-delay: 700ms;
+  }
+  .animate-delay-800 {
+    animation-delay: 800ms;
+  }
 
-  .opacity-0-start { opacity: 0; }
+  .opacity-0-start {
+    opacity: 0;
+  }
 }
 
 /* Swiper custom styles */
@@ -179,9 +215,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom animations for hero */
 @keyframes kenBurns {
-  0% { transform: scale(1) translate(0, 0); }
-  50% { transform: scale(1.05) translate(-1%, -1%); }
-  100% { transform: scale(1) translate(0, 0); }
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
 }
 
 .ken-burns {
@@ -189,15 +231,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes textReveal {
-  0% { clip-path: inset(0 100% 0 0); }
-  100% { clip-path: inset(0 0% 0 0); }
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
 }
 
 /* Particle dots */
 @keyframes particleFloat {
-  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
-  33% { transform: translateY(-20px) translateX(10px); opacity: 1; }
-  66% { transform: translateY(10px) translateX(-5px); opacity: 0.4; }
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 1;
+  }
+  66% {
+    transform: translateY(10px) translateX(-5px);
+    opacity: 0.4;
+  }
 }
 
 .particle {
@@ -237,13 +293,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive utilities */
 @media (max-width: 768px) {
-  .hide-mobile { display: none !important; }
+  .hide-mobile {
+    display: none !important;
+  }
 }
 @media (min-width: 769px) {
-  .hide-desktop { display: none !important; }
+  .hide-desktop {
+    display: none !important;
+  }
 }
 
 /* Print styles */
 @media print {
-  .no-print { display: none !important; }
+  .no-print {
+    display: none !important;
+  }
 }

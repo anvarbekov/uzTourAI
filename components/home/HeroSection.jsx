@@ -90,7 +90,7 @@ export default function HeroSection() {
           >
             {t('hero.title')}
             <br />
-            <span className="text-gradient-gold">{t('hero.titleHighlight')}</span>
+            <span className="text-gradient-gold gold-shimmer italic">{t('hero.titleHighlight')}</span>
           </h1>
 
           {/* Subtitle */}
