@@ -109,3 +109,4 @@ uztour/
 - 🇹🇷 Turk
 - 🇨🇳 Xitoy
 # uzTourAI
+# uzTourAI
